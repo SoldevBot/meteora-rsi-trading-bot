@@ -80,7 +80,7 @@ flowchart TD
     
     I --> J{Price Movement?}
     
-    J -->|Profit Zone| K[HARVEST: Empty Traded Bins]
+    J -->|Profit Zone| K[HARVEST: Already Traded Bins]
     J -->|Loss Signal| L[CLOSE: Complete Position]
     J -->|Neutral| M[HOLD: Collect Fees]
     
@@ -114,7 +114,7 @@ Sell Example:
 ```mermaid
 graph LR
     A[Position: $180 - $185] --> B[Price rises to $182]
-    B --> C[HARVEST: Empty bins $180-$182]
+    B --> C[HARVEST: Traded bins $180-$182]
     C --> D[New Range: $182 - $185]
     D --> E[Position stays active for more fees]
     
