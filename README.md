@@ -407,28 +407,6 @@ sequenceDiagram
         end
     end
 ```
-
-## 🧪 Testing & Validation
-
-```bash
-# 🧪 Run all tests
-yarn test
-
-# 🔍 Backend tests (Unit & Integration)
-yarn workspace backend test
-
-# 🖥️ Frontend tests (Component & E2E)
-yarn workspace frontend test
-
-# 📊 Test coverage report
-yarn test --coverage
-```
-
-### Test Categories:
-- **Unit Tests**: Service layer and utility functions
-- **Integration Tests**: API endpoints and blockchain interactions
-- **Mock Testing**: Simulated market conditions and RSI signals
-
 ## 📡 API Reference
 
 ### Backend Endpoints (Port 3001)
