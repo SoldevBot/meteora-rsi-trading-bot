@@ -189,6 +189,13 @@ POSITION_FACTOR_1H=0.20   # 20% for 1-hour timeframe
 POSITION_FACTOR_4H=0.35   # 35% for 4-hour timeframe
 POSITION_FACTOR_1D=0.40   # 40% for 1-day timeframe
 
+# DLMM Pool Configuration per Timeframe
+POOL_ID_1M=5rCf1DM8LjKTw4YqhnoLcngyZYeNnQqztScTogYHAS6
+POOL_ID_15M=BGm1tav58oGcsQJehL9WXBFXF7D27vZsKefj4xJKD5Y
+POOL_ID_1H=BVRbyLjjfSBcoyiYFuxbgKYnWuiFaF9CSXEa5vdSZ9Hh
+POOL_ID_4H=5XRqv7LCoC5FhWKk5JN8n4kCrJs3e4KH1XsYzKeMd5Nt
+POOL_ID_1D=CgqwPLSFfht89pF5RSKGUUMFj5zRxoUt4861w2SkXaqY
+
 # 🌐 Server
 PORT=3001
 NODE_ENV=development
