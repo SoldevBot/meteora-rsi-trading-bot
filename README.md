@@ -516,11 +516,11 @@ graph TD
     end
     
     subgraph "Position Factors"
-        I[1min: 8%]
-        J[15min: 15%]
-        K[1h: 20%]
-        L[4h: 35%]
-        M[1d: 40%]
+        I[1min: 5%]
+        J[15min: 7%]
+        K[1h: 10%]
+        L[4h: 12%]
+        M[1d: 15%]
     end
     
     B --> F
@@ -531,6 +531,9 @@ graph TD
     D --> K
     D --> L
     D --> M
+```
+
+### 🔄 Enhanced Liquidity Harvesting Mechanism
 ```
 
 ### 🔄 Enhanced Liquidity Harvesting Mechanism
