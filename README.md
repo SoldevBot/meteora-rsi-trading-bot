@@ -99,7 +99,14 @@ flowchart TD
 
 #### 1. **Directional Liquidity (One-Sided)**
 - **BUY Signal**: Provide only USDC → Profit from price increases
+Buy Example:
+
+![alt text](buy-example.png)
+
 - **SELL Signal**: Provide only SOL → Profit from price decreases
+Sell Example:
+
+![alt text](sell-example.png)
 
 #### 2. **Intelligent Harvesting**
 ```mermaid
@@ -112,6 +119,8 @@ graph LR
     style C fill:#e8f5e8
     style E fill:#e3f2fd
 ```
+
+![alt text](harvest-example.png)
 
 #### 3. **Dual-Exit Strategy**
 - **Immediate Exit**: Price breaks through all bins → Close complete position
