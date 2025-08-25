@@ -98,12 +98,12 @@ flowchart TD
 ### 💡 How the Strategy Generates Profit:
 
 #### 1. **Directional Liquidity (One-Sided)**
-- **BUY Signal**: Provide only USDC → Profit from price increases
+- **BUY Signal**: Provide only SOL and exchange to USDC → More USDC from price increases after RSI oversold
 Buy Example:
 
 ![alt text](buy-example.png)
 
-- **SELL Signal**: Provide only SOL → Profit from price decreases
+- **SELL Signal**: Provide only USDC and exchange to SOL → More SOL from price decrease after RSI overbought
 Sell Example:
 
 ![alt text](sell-example.png)
