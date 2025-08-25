@@ -183,18 +183,64 @@ RSI_OVERBOUGHT_THRESHOLD=70
 DEFAULT_CHECK_INTERVAL=60000
 
 # 💰 Position Factors (% of wallet balance)
-POSITION_FACTOR_1M=0.08   # 8% for 1-minute timeframe
-POSITION_FACTOR_15M=0.15  # 15% for 15-minute timeframe
-POSITION_FACTOR_1H=0.20   # 20% for 1-hour timeframe
-POSITION_FACTOR_4H=0.35   # 35% for 4-hour timeframe
-POSITION_FACTOR_1D=0.40   # 40% for 1-day timeframe
+POSITION_FACTOR_1M=0.05    # 5% for 1-minute timeframe
+POSITION_FACTOR_15M=0.07   # 7% for 15-minute timeframe
+POSITION_FACTOR_1H=0.1     # 10% for 1-hour timeframe
+POSITION_FACTOR_4H=0.12    # 12% for 4-hour timeframe
+POSITION_FACTOR_1D=0.15    # 15% for 1-day timeframe
 
-# DLMM Pool Configuration per Timeframe
+# 🏊 Trading Pair Configuration
+TRADING_SYMBOL=SOLUSDT     # Binance symbol for price/RSI data
+BASE_TOKEN_MINT=So11111111111111111111111111111111111111112   # SOL mint
+QUOTE_TOKEN_MINT=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v # USDC mint
+BASE_TOKEN_SYMBOL=SOL      # For logging and UI
+QUOTE_TOKEN_SYMBOL=USDC    # For logging and UI
+
+# 🌊 DLMM Pool Configuration per Timeframe
 POOL_ID_1M=5rCf1DM8LjKTw4YqhnoLcngyZYeNnQqztScTogYHAS6
 POOL_ID_15M=BGm1tav58oGcsQJehL9WXBFXF7D27vZsKefj4xJKD5Y
 POOL_ID_1H=BVRbyLjjfSBcoyiYFuxbgKYnWuiFaF9CSXEa5vdSZ9Hh
 POOL_ID_4H=5XRqv7LCoC5FhWKk5JN8n4kCrJs3e4KH1XsYzKeMd5Nt
 POOL_ID_1D=CgqwPLSFfht89pF5RSKGUUMFj5zRxoUt4861w2SkXaqY
+
+# 📏 Pool Bin Steps per Timeframe
+BIN_STEP_1M=4              # Fine granularity for scalping
+BIN_STEP_15M=10            # Medium granularity for day trading
+BIN_STEP_1H=20             # Standard granularity for swing trading
+BIN_STEP_4H=50             # Wider steps for position trading
+BIN_STEP_1D=80             # Widest steps for trend following
+
+# 💸 Pool Base Fees per Timeframe
+BASE_FEE_1M=0.001          # 0.1% fee for high frequency
+BASE_FEE_15M=0.001         # 0.1% fee for medium frequency
+BASE_FEE_1H=0.002          # 0.2% fee for standard trading
+BASE_FEE_4H=0.005          # 0.5% fee for position trading
+BASE_FEE_1D=0.0005         # 0.05% fee for long-term trading
+
+# 🎯 Trading Strategy Configuration
+TRADING_STRATEGY=BidAsk    # BidAsk, Curve, Spot
+STRATEGY_TYPE_1M=BidAsk    # Individual strategy per timeframe
+STRATEGY_TYPE_15M=BidAsk
+STRATEGY_TYPE_1H=BidAsk
+STRATEGY_TYPE_4H=BidAsk
+STRATEGY_TYPE_1D=BidAsk
+
+# 🌾 Liquidity Harvesting Configuration
+HARVEST_ENABLED=true       # Enable intelligent bin harvesting
+HARVEST_MIN_BINS=2         # Minimum bins to harvest
+HARVEST_MIN_PRICE_MOVE=0.01 # Minimum 1% price move to harvest
+HARVEST_BPS_THRESHOLD=100  # Harvest when 1% of bins are profitable
+
+# 🛡️ Position Management - Price Buffer Zones
+CLOSE_BUFFER_IMMEDIATE_PCT=0.95  # Close when price hits 95% of range boundary
+CLOSE_BUFFER_FACTOR_PCT=0.85     # Close on RSI signal when 85% through range
+POSITION_MAX_RANGE_PCT=0.10      # Maximum 10% price range per position
+
+# ⚡ Transaction Configuration
+TRANSACTION_TIMEOUT=180000       # 3 minutes timeout for transactions
+TRANSACTION_MAX_RETRIES=5        # Maximum transaction retries
+TRANSACTION_SKIP_PREFLIGHT=false # Skip preflight checks (faster but less safe)
+TRANSACTION_MAX_RECENT_BLOCKHASH_AGE=60 # Max age for recent blockhash (seconds)
 
 # 🌐 Server
 PORT=3001
@@ -248,13 +294,32 @@ graph TB
     style E fill:#bbdefb
 ```
 
-| Timeframe | Pool ID | Bin Step | Position Factor | Strategy |
-|-----------|---------|----------|----------------|-----------|
-| **1min** | `5rCf1DM8LjK...` | 4 | 8% | Scalping |
-| **15min** | `BGm1tav58oG...` | 10 | 15% | Daytrading |
-| **1h** | `BVRbyLjjfSB...` | 20 | 20% | Swing Trading |
-| **4h** | `5XRqv7LCoC5...` | 50 | 35% | Position Trading |
-| **1d** | `CgqwPLSFfht...` | 80 | 40% | Trend Following |
+| Timeframe | Pool ID | Bin Step | Position Factor | Base Fee | Strategy | Use Case |
+|-----------|---------|----------|----------------|----------|----------|----------|
+| **1min** | `5rCf1DM8LjK...` | 4 | 5% | 0.1% | BidAsk | Scalping |
+| **15min** | `BGm1tav58oG...` | 10 | 7% | 0.1% | BidAsk | Day Trading |
+| **1h** | `BVRbyLjjfSB...` | 20 | 10% | 0.2% | BidAsk | Swing Trading |
+| **4h** | `5XRqv7LCoC5...` | 50 | 12% | 0.5% | BidAsk | Position Trading |
+| **1d** | `CgqwPLSFfht...` | 80 | 15% | 0.05% | BidAsk | Trend Following |
+
+### 🎛️ Advanced Configuration Options
+
+#### Liquidity Harvesting Settings
+- **HARVEST_ENABLED**: Enable/disable intelligent bin harvesting
+- **HARVEST_MIN_BINS**: Minimum number of bins required to trigger harvest
+- **HARVEST_MIN_PRICE_MOVE**: Minimum price movement (1%) to consider harvesting
+- **HARVEST_BPS_THRESHOLD**: Harvest threshold in basis points (100 = 1%)
+
+#### Position Management Buffer Zones
+- **CLOSE_BUFFER_IMMEDIATE_PCT**: Immediate close when price hits 95% of range boundary
+- **CLOSE_BUFFER_FACTOR_PCT**: Strategic close on RSI signal at 85% through range
+- **POSITION_MAX_RANGE_PCT**: Maximum 10% price range per position
+
+#### Transaction Optimization
+- **TRANSACTION_TIMEOUT**: 3-minute timeout for blockchain transactions
+- **TRANSACTION_MAX_RETRIES**: Maximum of 5 retry attempts for failed transactions
+- **TRANSACTION_SKIP_PREFLIGHT**: Skip preflight checks for faster execution (less safe)
+- **TRANSACTION_MAX_RECENT_BLOCKHASH_AGE**: 60-second maximum age for blockhash
 
 ## 🔒 Security Concept
 
@@ -500,19 +565,51 @@ graph TD
     D --> M
 ```
 
-### 🔄 Liquidity Harvesting Mechanism
+### 🔄 Enhanced Liquidity Harvesting Mechanism
+
+The bot now features an intelligent harvesting system with configurable parameters for optimal profit extraction:
+
+#### 🎯 Smart Harvesting Logic
+```mermaid
+graph TD
+    A[Price Movement Detection] --> B{Min Price Move > 1%?}
+    B -->|Yes| C{Profitable Bins ≥ Threshold?}
+    B -->|No| D[Continue Monitoring]
+    C -->|Yes| E[Execute Harvest]
+    C -->|No| F[Wait for More Movement]
+    E --> G[Update Position Range]
+    G --> H[Continue Fee Collection]
+    F --> A
+    D --> A
+    
+    style E fill:#e8f5e8
+    style G fill:#e3f2fd
+```
+
+#### 📋 Configuration Parameters
+- **HARVEST_ENABLED**: Master switch for harvesting functionality
+- **HARVEST_MIN_BINS**: Minimum 2 bins required before harvesting
+- **HARVEST_MIN_PRICE_MOVE**: 1% minimum price movement threshold
+- **HARVEST_BPS_THRESHOLD**: 100 BPS (1%) profitability threshold
 
 **BUY Position Example:**
 1. **Initial**: Position from $180 - $185 with USDC liquidity
-2. **Price rises to $182**: HARVEST bins $180-$182
-3. **New Range**: $182 - $185 (position stays active)
-4. **Profit**: Emptied bins + continuous fees
+2. **Price rises to $182**: Smart check: movement > 1% ✓, bins profitable > 1% ✓
+3. **HARVEST**: Extract liquidity from bins $180-$182
+4. **New Range**: $182 - $185 (position remains active for continued fees)
+5. **Profit**: Harvested tokens + ongoing fee collection
 
 **SELL Position Example:**
 1. **Initial**: Position from $180 - $185 with SOL liquidity  
-2. **Price falls to $183**: HARVEST bins $183-$185
-3. **New Range**: $180 - $183 (position stays active)
-4. **Profit**: Emptied bins + continuous fees
+2. **Price falls to $183**: Smart check: movement > 1% ✓, bins profitable > 1% ✓
+3. **HARVEST**: Extract liquidity from bins $183-$185
+4. **New Range**: $180 - $183 (position remains active for continued fees)
+5. **Profit**: Harvested tokens + ongoing fee collection
+
+#### 🛡️ Risk Management Integration
+- **Buffer Zones**: Positions close at 95% of range boundary for immediate risk
+- **Strategic Exits**: RSI signal-based exits at 85% range penetration
+- **Range Limits**: Maximum 10% price range per position to control exposure
 
 ## 🛠️ Technologies Used
 
