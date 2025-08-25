@@ -142,7 +142,7 @@ graph LR
 
 ```bash
 # Clone repository
-git clone <repository-url>
+git clone https://github.com/SoldevBot/meteora-rsi-trading-bot.git
 cd meteora-trading-bot
 
 # Install dependencies
