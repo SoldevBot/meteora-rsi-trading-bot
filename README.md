@@ -502,10 +502,10 @@ graph TD
 ```mermaid
 graph LR
     A[Node.js + TypeScript] --> B[Express.js]
-    B --> C[@solana/web3.js]
-    C --> D[@meteora-ag/dlmm-sdk]
-    D --> E[technicalindicators]
-    E --> F[axios + winston]
+    B --> C[Solana Web3.js]
+    C --> D[Meteora DLMM SDK]
+    D --> E[Technical Indicators]
+    E --> F[Axios + Winston]
     
     style A fill:#e8f5e8
     style C fill:#e3f2fd
@@ -603,9 +603,9 @@ yarn dev
 
 ## 📞 Support & Community
 
-🐛 **Bugs & Issues**: [GitHub Issues](https://github.com/your-repo/issues)
-💬 **Discussions**: [GitHub Discussions](https://github.com/your-repo/discussions)
-📧 **Contact**: [Email Support](mailto:support@example.com)
+🐛 **Bugs & Issues**: [GitHub Issues](https://github.com/SoldevBot/meteora-rsi-trading-bot/issues)
+💬 **Discussions**: [GitHub Discussions](https://github.com/SoldevBot/meteora-rsi-trading-bot/discussions)
+📧 **Contact**: [Email Support](mailto:soldev_bot@proton.me)
 
 ---
 
