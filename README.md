@@ -4,6 +4,8 @@
 
 A sophisticated, automated RSI-based trading bot for Solana that utilizes Meteora DLMM (Dynamic Liquidity Market Maker) pools for intelligent SOL/USDC trading.
 
+![alt text](dashboard.png)
+
 ## ✨ Features
 
 - 🎯 **Intelligent RSI Strategy**: Multi-timeframe RSI analysis with adaptive thresholds
