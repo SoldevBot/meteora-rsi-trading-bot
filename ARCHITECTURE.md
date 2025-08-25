@@ -198,26 +198,6 @@ meteora-trading-bot/
 - User-friendly error messages
 - Detailed logging for debugging
 
-## 🧪 Testing Strategy
-
-### Unit Tests
-- Service layer testing
-- API endpoint testing
-- Mock external dependencies
-- Coverage reporting
-
-### Integration Tests
-- End-to-end workflow testing
-- Database integration
-- External API integration
-- Performance testing
-
-### Mock Data
-- Simulated market conditions
-- Test wallet scenarios
-- RSI signal simulation
-- Error condition testing
-
 ## 🚀 Deployment
 
 ### Development
@@ -267,12 +247,3 @@ yarn build && yarn start
 
 ### Code Standards
 - TypeScript strict mode
-- ESLint configuration
-- Prettier formatting
-- Conventional commits
-
-### Testing Requirements
-- Unit tests for new features
-- Integration tests for workflows
-- Documentation updates
-- Security review

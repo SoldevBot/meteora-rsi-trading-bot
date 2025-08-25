@@ -704,9 +704,6 @@ yarn dev
 
 ### 📝 Code Standards
 - **TypeScript Strict Mode**: Complete type safety
-- **ESLint + Prettier**: Code formatting & linting
-- **Conventional Commits**: Structured commit messages
-- **100% Test Coverage**: Comprehensive test coverage
 
 ## ⚖️ Legal Notice
 
