@@ -1,0 +1,35 @@
+Add the Plugin script to your project:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupiter Plugin Demo</title>
+    <script src="https://plugin.jup.ag/plugin-v1.js" data-preload defer></script>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jupiter Plugin Demo</h1>
+        <div id="jupiter-plugin"></div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            window.Jupiter.init({
+                displayMode: "widget",
+                integratedTargetId: "jupiter-plugin",
+            });
+        };
+    </script>
+</body>
+</html>
