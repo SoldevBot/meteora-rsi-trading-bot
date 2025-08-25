@@ -231,11 +231,6 @@ HARVEST_MIN_BINS=2         # Minimum bins to harvest
 HARVEST_MIN_PRICE_MOVE=0.01 # Minimum 1% price move to harvest
 HARVEST_BPS_THRESHOLD=100  # Harvest when 1% of bins are profitable
 
-# 🛡️ Position Management - Price Buffer Zones
-CLOSE_BUFFER_IMMEDIATE_PCT=0.95  # Close when price hits 95% of range boundary
-CLOSE_BUFFER_FACTOR_PCT=0.85     # Close on RSI signal when 85% through range
-POSITION_MAX_RANGE_PCT=0.10      # Maximum 10% price range per position
-
 # ⚡ Transaction Configuration
 TRANSACTION_TIMEOUT=180000       # 3 minutes timeout for transactions
 TRANSACTION_MAX_RETRIES=5        # Maximum transaction retries
@@ -294,13 +289,13 @@ graph TB
     style E fill:#bbdefb
 ```
 
-| Timeframe | Pool ID | Bin Step | Position Factor | Base Fee | Strategy | Use Case |
-|-----------|---------|----------|----------------|----------|----------|----------|
-| **1min** | `5rCf1DM8LjK...` | 4 | 5% | 0.1% | BidAsk | Scalping |
-| **15min** | `BGm1tav58oG...` | 10 | 7% | 0.1% | BidAsk | Day Trading |
-| **1h** | `BVRbyLjjfSB...` | 20 | 10% | 0.2% | BidAsk | Swing Trading |
-| **4h** | `5XRqv7LCoC5...` | 50 | 12% | 0.5% | BidAsk | Position Trading |
-| **1d** | `CgqwPLSFfht...` | 80 | 15% | 0.05% | BidAsk | Trend Following |
+| Timeframe | Pool ID | Bin Step | Position Factor | Base Fee | Strategy |
+|-----------|---------|----------|----------------|----------|----------|
+| **1min** | `5rCf1DM8LjK...` | 4 | 5% | 0.1% | BidAsk/Curve/Spot | 
+| **15min** | `BGm1tav58oG...` | 10 | 7% | 0.1% | BidAsk/Curve/Spot | 
+| **1h** | `BVRbyLjjfSB...` | 20 | 10% | 0.2% | BidAsk/Curve/Spot | 
+| **4h** | `5XRqv7LCoC5...` | 50 | 12% | 0.5% | BidAsk/Curve/Spot | 
+| **1d** | `CgqwPLSFfht...` | 80 | 15% | 0.05% | BidAsk/Curve/Spot | 
 
 ### 🎛️ Advanced Configuration Options
 
@@ -309,11 +304,6 @@ graph TB
 - **HARVEST_MIN_BINS**: Minimum number of bins required to trigger harvest
 - **HARVEST_MIN_PRICE_MOVE**: Minimum price movement (1%) to consider harvesting
 - **HARVEST_BPS_THRESHOLD**: Harvest threshold in basis points (100 = 1%)
-
-#### Position Management Buffer Zones
-- **CLOSE_BUFFER_IMMEDIATE_PCT**: Immediate close when price hits 95% of range boundary
-- **CLOSE_BUFFER_FACTOR_PCT**: Strategic close on RSI signal at 85% through range
-- **POSITION_MAX_RANGE_PCT**: Maximum 10% price range per position
 
 #### Transaction Optimization
 - **TRANSACTION_TIMEOUT**: 3-minute timeout for blockchain transactions
