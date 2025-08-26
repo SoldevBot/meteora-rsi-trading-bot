@@ -71,8 +71,8 @@ flowchart TD
     C -->|RSI > 70 Overbought| E[SELL Position Creation]
     C -->|30-70 Neutral| F[Check Existing Positions]
     
-    D --> G[USDC → SOL Liquidity]
-    E --> H[SOL → USDC Liquidity]
+    D --> G[SOL → USDC Liquidity]
+    E --> H[USDC → SOL Liquidity]
     
     G --> I[Position Monitoring]
     H --> I
