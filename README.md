@@ -138,15 +138,21 @@ graph LR
 
 ## 🚀 Quick Start Guide
 
-### 1️⃣ Installation & Setup
-
+### 🔧 Development Setup
 ```bash
-# Clone repository
+# 1. Fork & Clone
 git clone https://github.com/SoldevBot/meteora-rsi-trading-bot.git
 cd meteora-trading-bot
 
-# Install dependencies
-yarn install-all
+# 2. Install Dependencies  
+yarn install --check-files
+
+# 3. Setup Environment
+cp packages/backend/.env.example packages/backend/.env
+cp packages/frontend/.env.example packages/frontend/.env
+
+# 4. Start Development
+yarn dev
 ```
 
 ### 2️⃣ Environment Configuration
@@ -653,28 +659,6 @@ LOG_LEVEL=info
 RATE_LIMIT_ENABLED=true
 MONITORING_ENABLED=true
 ```
-
-## 🤝 Contributing & Development
-
-### 🔧 Development Setup
-```bash
-# 1. Fork & Clone
-git clone <your-fork-url>
-cd meteora-trading-bot
-
-# 2. Install Dependencies  
-yarn install --check-files
-
-# 3. Setup Environment
-cp packages/backend/.env.example packages/backend/.env
-cp packages/frontend/.env.example packages/frontend/.env
-
-# 4. Start Development
-yarn dev
-```
-
-### 📝 Code Standards
-- **TypeScript Strict Mode**: Complete type safety
 
 ## ⚖️ Legal Notice
 
