@@ -2,7 +2,7 @@
 
 **💎 Support this project with SOLANA donations: `37niDgM4imp3XfrYNgcc9siJYCoJzXgSeqEdybZ7vUm3`**
 
-A sophisticated, automated RSI-based trading bot for Solana that utilizes Meteora DLMM (Dynamic Liquidity Market Maker) pools for intelligent SOL/USDC trading.
+A Solana trading bot designed to provide single-sided liquidity on Meteora's decentralized exchange. The bot leverages the Relative Strength Index (RSI) to identify overbought (>70) and oversold (<30) market conditions, enabling strategic liquidity placement for optimized returns.
 
 ![alt text](dashboard.png)
 
