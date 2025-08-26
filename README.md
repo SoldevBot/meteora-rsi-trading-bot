@@ -663,7 +663,7 @@ git clone <your-fork-url>
 cd meteora-trading-bot
 
 # 2. Install Dependencies  
-yarn install-all
+yarn install --check-files
 
 # 3. Setup Environment
 cp packages/backend/.env.example packages/backend/.env
