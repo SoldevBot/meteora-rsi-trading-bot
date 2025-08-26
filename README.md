@@ -14,7 +14,7 @@ A sophisticated, automated RSI-based trading bot for Solana that utilizes Meteor
 - 📊 **Real-time Dashboard**: Live monitoring with charts and performance metrics
 - 🛡️ **Advanced Risk Management**: Automatic position management with stop-loss mechanisms
 - 🔌 **Jupiter DEX Integration**: Seamless token swaps via Jupiter aggregator
-- 🔐 **Enterprise Security**: BIP39 wallet security with hardware wallet support
+- 🔐 **Phantom Wallet Support**: Use a phantom 12 word seed phrase for the bot
 
 ## 🏗️ Architecture & System Overview
 
@@ -322,7 +322,7 @@ graph TB
 ```mermaid
 graph TD
     A[Wallet Security] --> B[BIP39 Seed Phrase]
-    A --> C[Hardware Wallet Support]
+    A --> C[Phantom Wallet Support]
     A --> D[Test/Production Separation]
     
     E[API Security] --> F[Rate Limiting]
@@ -344,7 +344,6 @@ graph TD
 
 ✅ **Recommended Setup:**
 - **Development**: Separate test wallet with minimal funds
-- **Production**: Hardware wallet or secure key management systems
 - **API Keys**: Environment variables with restricted permissions
 
 ## 📊 Trading Dashboard
